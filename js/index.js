@@ -2,7 +2,7 @@ function forecast() {
     let city = document.getElementById("city").value;
     if(city != null) {
         const xhr = new XMLHttpRequest();
-        xhr.open("GET", `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8e82a4c8f80f7ddcdd43515982ea3975`);
+        xhr.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=8e82a4c8f80f7ddcdd43515982ea3975`);
         xhr.send();
 
         xhr.addEventListener("readystatechange", () => {
@@ -100,7 +100,7 @@ function forecast() {
         });
 
         const xfr = new XMLHttpRequest();
-        xfr.open("GET", `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=8e82a4c8f80f7ddcdd43515982ea3975`);
+        xfr.open("GET", `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=8e82a4c8f80f7ddcdd43515982ea3975`);
         xfr.send();
         xfr.addEventListener("readystatechange", () => {
             let dis = document.querySelector("#display");
