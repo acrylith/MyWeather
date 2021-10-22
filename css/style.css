@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.tabcontent {
+  display: none;
+  animation: fadeEffect 0.5s;
+}
+
+.header {
+  margin: 40px 0;
+}
+.header__search {
+  margin-bottom: 40px;
+}
+.header__btn-wrapper button {
+  width: 100%;
+  border-radius: 50px;
+  background-color: transparent;
+}
+.header__search-wrapper {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 50px;
+  height: 36px;
+  padding: 0 10px;
+}
+.header__search-wrapper .loc {
+  margin-top: 2px;
+  margin-right: 10px;
+}
+.header__search-wrapper input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+.header__search-wrapper button {
+  background-color: transparent;
+  border: none;
+}
+
+.main__card {
+  display: flex;
+  gap: 20px;
+  border-radius: 50px;
+  color: white;
+  margin-bottom: 40px;
+  padding: 36px;
+  align-content: center;
+}
+.main__visual {
+  width: 30%;
+}
+.main__desc {
+  width: 70%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.main__info {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main__info p {
+  width: 50%;
+  text-align: center;
+}
+.main__display {
+  overflow-x: scroll;
+}
+
+.visual__icon img {
+  width: 100%;
+}
+.visual__text {
+  text-align: center;
+}
+
+.desc__temp {
+  font-size: 66pt;
+}
+.desc__calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.desc__calendar p {
+  margin: 0;
+}
+.desc__day {
+  font-size: 24pt;
+  font-weight: 400;
+}
+
+.display {
+  color: white;
+  margin-bottom: 40px;
+}
+.display p {
+  margin: 0;
+  text-align: center;
+}
+.display__interval {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 12px 0;
+}
+
+.active-tab {
+  background-color: #575757 !important;
+  color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .main__desc {
+    gap: 0;
+  }
+
+  .desc__temp {
+    line-height: 86px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .main__card {
+    gap: 10px;
+  }
+  .main__visual {
+    width: 40%;
+  }
+  .main__desc {
+    width: 60%;
+  }
+
+  .desc__temp {
+    font-size: 62pt;
+  }
+  .desc__day {
+    font-size: 22pt;
+  }
+}
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

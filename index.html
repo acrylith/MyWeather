@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>MyWeather App</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__search">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-9 col-lg-7 col-xl-5 col-xxl-4">
+                        <div class="header__search-wrapper">
+                            <img class="loc" src="./icons/loc.svg" alt="location">
+                            <input type="text" id="city">
+                            <button onclick="forecast()"><img src="./icons/arrow.svg" alt="E"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav>
+                <div class="header__buttons">
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
+                            <div class="header__btn-wrapper">
+                                <button class="tablinks" id="defaultOpen" onClick="tabs(event, 'today')">Today</button>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-lg-3 col-xl-2">
+                            <div class="header__btn-wrapper">
+                                <button class="tablinks" onClick="tabs(event, 'fdays')">5 days</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="main__today tabcontent" id="today">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-xl-7 col-xxl-6">
+                        <div class="main__card">
+                            <div class="main__visual visual">
+                                <div class="visual__icon">
+                                    <img src="./icons/part_cloud.svg" alt="weather-icon">
+                                </div>
+                                <p class="visual__text"></p>
+                            </div>
+        
+                            <div class="main__desc desc">
+                                <p class="desc__temp"></p>
+                                <div class="desc__calendar">
+                                    <p class="desc__day"></p>
+                                    <p class="desc__date"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main__info">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main__fdays tabcontent" id="fdays">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-xl-7 col-xxl-6">
+                        <div class="main__display display">
+                            <div class="row flex-nowrap" id="display">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
