@@ -166,6 +166,22 @@
 //     display: block !important;
 // }
 
+@media screen and (max-width: 1024px) {
+    ::-webkit-scrollbar {
+        width: initial;
+    }
+    
+    ::-webkit-scrollbar-track {
+        border: initial;
+        border-radius: initial;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: initial;
+        border-radius: initial;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .main {
         &__desc {

@@ -19,15 +19,31 @@ function forecast() {
                     const jsontd = xhr.responseText;
                     const data = JSON.parse(jsontd);
                     console.log(data);
-                    Temp.textContent = Math.round(data.main.temp) + "°";
+                    if(Math.round(data.main.temp) > 0){
+                        Temp.textContent ="+" + Math.round(data.main.temp) + "°";
+                    } else{
+                        Temp.textContent = Math.round(data.main.temp) + "°";
+                    }
                     weatherIcon.src = `./icons/weather/${data.weather[0].icon}.svg`;
                     VText.textContent = data.weather[0].description;
                     Day.textContent = dayjs(data.dt * 1000).format('dddd');
                     Date.textContent = dayjs(data.dt * 1000).format('MMMM, DD');
-                    Info[0].textContent = "Feels like: " + Math.round(data.main.feels_like) + "°";
+                    if(Math.round(data.main.feels_like) > 0){
+                        Info[0].textContent = "Feels like: +" + Math.round(data.main.feels_like) + "°";
+                    } else{
+                        Info[0].textContent = "Feels like: " + Math.round(data.main.feels_like) + "°";
+                    }
                     Info[1].textContent = "Pressure: " + data.main.pressure;
-                    Info[2].textContent = "Temp.min: " + Math.round(data.main.temp_min) + "°";
-                    Info[3].textContent = "Temp.max: " + Math.round(data.main.temp_max) + "°";
+                    if(Math.round(data.main.temp_min) > 0){
+                        Info[2].textContent = "Temp.min: +" + Math.round(data.main.temp_min) + "°";
+                    } else{
+                        Info[2].textContent = "Temp.min: " + Math.round(data.main.temp_min) + "°";
+                    }
+                    if(Math.round(data.main.temp_max) > 0){
+                        Info[3].textContent = "Temp.max: +" + Math.round(data.main.temp_max) + "°";
+                    } else{
+                        Info[3].textContent = "Temp.max: " + Math.round(data.main.temp_max) + "°";
+                    }
                     Info[4].textContent = "Wind: " + data.wind.speed + "m/s, " + data.wind.deg + "deg";
                     Info[5].textContent = "Humidity: " + data.main.humidity + "%";
                     Info[6].textContent = "Sunrise: " + dayjs(data.sys.sunrise * 1000).format('HH:MM');
@@ -92,7 +108,6 @@ function forecast() {
                             bgGradient = "background-color: #02A8A8;";
                     }
                     cardBg.style = bgGradient;
-                    console.log(data.dt);
                 }else {
                     console.log(xhr.statusText);
                 }
@@ -104,6 +119,9 @@ function forecast() {
         xfr.send();
         xfr.addEventListener("readystatechange", () => {
             let dis = document.querySelector("#display");
+            while (dis.firstChild) {
+                dis.removeChild(dis.firstChild);
+            }
             if(xfr.readyState === 4) {
                 if(xfr.status === 200) {
                     const jsonfd = xfr.responseText;
@@ -142,11 +160,19 @@ function forecast() {
                         visual.appendChild(description);
                         let temp = document.createElement("p");
                         temp.classList.add("display__temp");
-                        temp.textContent = Math.round(datafd.list[i].main.temp) + "°";
+                        if(Math.round(datafd.list[i].main.temp) > 0){
+                            temp.textContent = "+" + Math.round(datafd.list[i].main.temp) + "°";
+                        } else{
+                            temp.textContent = Math.round(datafd.list[i].main.temp) + "°";
+                        }
                         int.appendChild(temp);
                         let feelsLike = document.createElement("p");
                         feelsLike.classList.add("display__flike");
-                        feelsLike.textContent = "Feels like: " + Math.round(datafd.list[i].main.feels_like) + "°";
+                        if(Math.round(datafd.list[i].main.feels_like) > 0){
+                            feelsLike.textContent = "Feels like: +" + Math.round(datafd.list[i].main.feels_like) + "°";
+                        } else{
+                            feelsLike.textContent = "Feels like: " + Math.round(datafd.list[i].main.feels_like) + "°";
+                        }
                         int.appendChild(feelsLike);
                         let pressure = document.createElement("p");
                         pressure.classList.add("display__pressure");
